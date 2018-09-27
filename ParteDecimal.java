@@ -3,10 +3,10 @@ import javax.swing.*;
 public class ParteDecimal {
     public static void main(String[] args) {
 
-        double numeroDecimal;
-        numeroDecimal = Double.parseDouble(JOptionPane.showInputDialog("Ingrese un número decimal: "));
+        double numberoDecimal;
+        numberoDecimal = Double.parseDouble(JOptionPane.showInputDialog("Ingrese un número decimal: "));
 
-        String str = String.valueOf(numeroDecimal);
+        String str = String.valueOf(numberoDecimal);
 
         int parteEnteraNumeroDecimal = Integer.parseInt(str.substring(0, str.indexOf('.')));
         float parteDecimalNumeroDecimal = Float.parseFloat(str.substring(str.indexOf('.')));

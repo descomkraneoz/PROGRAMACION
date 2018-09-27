@@ -37,7 +37,7 @@ public class CalculandoFiguras {
                         catetoUno=Double.parseDouble(JOptionPane.showInputDialog("Introduce el valor del primer cateto en cm: "));
                         catetoDos=Double.parseDouble(JOptionPane.showInputDialog("Introduce el valor del segundo cateto en cm: "));
                         operacionIntermedia=Math.pow(catetoUno,2)+Math.pow(catetoDos,2);
-                        hipotenusa=Math.pow(operacionIntermedia,0.5);
+                        hipotenusa=Math.sqrt (operacionIntermedia);
                         String salidaDos="La longitud de la hipotenusa es: "+String.format("%.2f", hipotenusa)+" cm\n";
                         JOptionPane.showMessageDialog(null, salidaDos);
                         break;

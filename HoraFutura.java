@@ -12,8 +12,10 @@ public class HoraFutura {
 
         horaFutura=(horaActual+cantidadHoras)%24;
 
+        int horaEnRelojPared=(horaFutura==0)?24:horaFutura;
+
         String salida;
-        salida="En "+cantidadHoras+" horas, serán las "+horaFutura;
+        salida="En "+cantidadHoras+" horas, serán las "+horaEnRelojPared;
 
         JOptionPane.showMessageDialog(null,salida,"¿Que hora será dentro de...?",JOptionPane.INFORMATION_MESSAGE);
     }

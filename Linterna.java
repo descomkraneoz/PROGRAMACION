@@ -1,5 +1,3 @@
-import javax.swing.*;
-
 public class Linterna {
 
     private final String marca;
@@ -30,19 +28,19 @@ public class Linterna {
 
     public String getNumeroPilas() {
 
-        String salida=numeroPilas+" AAA necesaria(s)";
+        String salida = numeroPilas + " AAA necesaria(s)";
 
         return salida;
     }
 
     public String getLuminosidad() {
 
-        String salida="";
-        salida+=luminosidad==1?"\u2605\u2606\u2606\u2606\u2606":"";
-        salida+=luminosidad==2?"\u2605\u2605\u2606\u2606\u2606":"";
-        salida+=luminosidad==3?"\u2605\u2605\u2605\u2606\u2606":"";
-        salida+=luminosidad==4?"\u2605\u2605\u2605\u2605\u2606":"";
-        salida+=luminosidad==5?"\u2605\u2605\u2605\u2605\u2605":"";
+        String salida = "";
+        salida += luminosidad == 1 ? "\u2605\u2606\u2606\u2606\u2606" : "";
+        salida += luminosidad == 2 ? "\u2605\u2605\u2606\u2606\u2606" : "";
+        salida += luminosidad == 3 ? "\u2605\u2605\u2605\u2606\u2606" : "";
+        salida += luminosidad == 4 ? "\u2605\u2605\u2605\u2605\u2606" : "";
+        salida += luminosidad == 5 ? "\u2605\u2605\u2605\u2605\u2605" : "";
         return salida;
     }
 
@@ -53,7 +51,9 @@ public class Linterna {
 
     public String estaEncendida() {
 
-        return estaApagada?"la linterna esta apagada":"La linterna esta encendida";
+        String salida = estaApagada ? "la linterna esta apagada" : "La linterna esta encendida";
+
+        return salida;
     }
 
     public int getPrecioEnEuros() {
@@ -61,14 +61,36 @@ public class Linterna {
         return precioEnEuros;
     }
 
-    public void setPrecioEnEuros(int precioEnEuros) {
-        //Integer.parseInt(JOptionPane.showInputDialog("Establece un nuevo precio para la linterna"));
-        this.precioEnEuros = precioEnEuros;
+    public void setPrecioEnEurosNuevo(int precioEnEurosNuevo) {
+
+        this.precioEnEuros = precioEnEurosNuevo;
+    }
+
+    private int eurosDescontados;
+
+    public void setDescuentoEnEuros(int eurosDescontados) {
+
+        this.eurosDescontados = eurosDescontados;
+    }
+
+    public int getDescuentoEnEuros() {
+
+        return precioEnEuros = precioEnEuros - eurosDescontados;
+    }
+
+    public String getTotalEnEuros() {
+
+        String salida = "";
+        salida += "Al precio original: " + getPrecioEnEuros() + " €\n";
+        salida += "Descontamos: " + this.eurosDescontados + " €\n";
+        salida += "Quedando un total de: " + getDescuentoEnEuros() + " €";
+
+        return salida;
     }
 
     public String infoCorta() {
-        return "Marca de la linterna: " + this.marca + "\n" + "Luminosidad: " + this.getLuminosidad()+"\n"
-                +"Precio: "+this.precioEnEuros;
+        return "Marca de la linterna: " + this.marca + "\n" + "Luminosidad: " + this.getLuminosidad() + "\n"
+                + "Precio: " + this.precioEnEuros;
     }
 
     public String infoLarga() {
@@ -76,25 +98,9 @@ public class Linterna {
                 + "Modelo: " + this.modelo + "\n"
                 + "El número de pilas es: " + this.getNumeroPilas() + "\n"
                 + "Luminosidad: " + this.getLuminosidad() + "\n"
-                + "Precio: " + this.precioEnEuros+" €\n"
-                +this.precioFinalRebajadoEuros();
+                + "Precio: " + this.precioEnEuros + " €\n"
+                + "Precio descontado: " + getDescuentoEnEuros() + " €";
     }
 
-    private int precioRebajadoEuros;
-
-    public void setPrecioRebajadoEuros(int rebajaEnEuros) {
-        rebajaEnEuros=Integer.parseInt(JOptionPane.showInputDialog("Introduzca la cantidad de € a rebajar: "));
-
-        this.precioRebajadoEuros = precioEnEuros-rebajaEnEuros;
-    }
-
-    public String precioFinalRebajadoEuros(){
-
-        String salida="El precio rebajado es de: "+this.precioEnEuros+" €\n";
-
-
-        return salida;
-
-    }
 
 }
